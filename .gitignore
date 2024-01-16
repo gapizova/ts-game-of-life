@@ -91,3 +91,4 @@ $RECYCLE.BIN/
 
 # Test
 /coverage
+!/jest.config.js
