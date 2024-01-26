@@ -12,6 +12,9 @@ module.exports = {
     filename: '[name].[hash].js',
     clean: true,
   },
+  resolve: {
+    extensions: ['.js', '.ts'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'), // шаблон
@@ -37,6 +40,13 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.(?:js|ts|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
       {
         test: /(\.css)$/,
         use: [
