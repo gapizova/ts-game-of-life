@@ -5,8 +5,8 @@
  * @param onCellClick {(x: number, y: number) => void}
  * @returns void
  */
-export function drawField(htmlElement, field, onCellClick) {
-  const rowIterator = (row, rowIndex) =>
+export function drawField(htmlElement: Element | null, field: number[][] | unknown[][], onCellClick: { (x: number, y: number): void; (x: number, y: number): void; (x: number, y: number): void; (arg0: number, arg1: number): void; }) {
+  const rowIterator = (row: [], rowIndex: number) =>
     `<tr>${row
       .map((cell, columnIndex) => {
         if (cell === 1) {
@@ -25,12 +25,13 @@ export function drawField(htmlElement, field, onCellClick) {
       .join('')}</tr>`;
 
   // eslint-disable-next-line no-param-reassign
-  htmlElement.innerHTML = `<table border=1>${field.map(rowIterator).join('')}</table>`;
+  htmlElement!.innerHTML = `<table border=1>${field.map(rowIterator).join('')}</table>`;
+
 
   htmlElement.querySelector('table').addEventListener('click', (ev) => {
     const clickedElement = ev.target;
-    const x = clickedElement.getAttribute('data-x');
-    const y = clickedElement.getAttribute('data-y');
+    const x = clickedElement!.getAttribute('data-x');
+    const y = clickedElement!.getAttribute('data-y');
     if (x >= 0 && y >= 0) {
       onCellClick(Number(x), Number(y));
     }
