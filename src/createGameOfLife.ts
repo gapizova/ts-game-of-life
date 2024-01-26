@@ -28,11 +28,11 @@ export function createGameOfLife(sizeX: number, sizeY: number, htmlElement: HTML
 
   const cellClickHandler = (x: number, y: number) => {
     field[y][x] = field[y][x] === 0 ? 1 : 0;
-    drawField(fieldWrapper, field, cellClickHandler);
+    drawField(fieldWrapper!, field, cellClickHandler);
   };
 
   // Отрисовать поле заданного размера
-  drawField(fieldWrapper, field, cellClickHandler);
+  drawField(fieldWrapper!, field, cellClickHandler);
   // При клике по ячейке поля
   // - поменять его состояние
   // - перерисовать поле
@@ -63,7 +63,7 @@ export function createGameOfLife(sizeX: number, sizeY: number, htmlElement: HTML
       //    - остановить таймер
       //    - вывести сообщение
       field = getNextState(field);
-      drawField(fieldWrapper, field, cellClickHandler);
+      drawField(fieldWrapper!, field, cellClickHandler);
       if (!isAnyoneAlive(field)) {
         alert("Death on the block");
         stopGame();
