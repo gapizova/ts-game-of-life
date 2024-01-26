@@ -36,6 +36,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-image-snapshot": "^6.2.0",
     "jsdom": "^22.1.0",
+    "lint-staged": "^15.2.0",
     "postcss-import": "^15.1.0",
     "postcss-lit": "^1.1.0",
     "postcss-loader": "^7.3.3",
