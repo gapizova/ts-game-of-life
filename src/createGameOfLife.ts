@@ -12,18 +12,18 @@ import { isAnyoneAlive } from "./isAnyoneAlive";
  * @returns void
  */
 export function createGameOfLife(sizeX: number, sizeY: number, htmlElement: HTMLDivElement) {
-  let gameIsRunning = false;
+  let gameIsRunning: boolean = false;
   let timer: number | NodeJS.Timeout;
 
   // Создать блок для поля
   // Создать кнопку управления игрой
   htmlElement.innerHTML = `<div class="field-wrapper"></div><button>Start</button>`;
-  const fieldWrapper = htmlElement.querySelector(".field-wrapper");
-  const button = htmlElement.querySelector("button");
+  const fieldWrapper: Element = htmlElement.querySelector<HTMLElement>(".field-wrapper")!;
+  const button: HTMLButtonElement = htmlElement.querySelector<HTMLButtonElement>("button")!;
 
   // Создать поле заданного размера
-  let field = Array.from({ length: sizeY }).map(() =>
-    Array.from({ length: sizeX }).fill(0)
+  let field: number[][] = Array.from({ length: sizeY }, () =>
+      Array.from({ length: sizeX }, () => 0)
   );
 
   const cellClickHandler = (x: number, y: number) => {
