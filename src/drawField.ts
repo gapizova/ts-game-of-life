@@ -5,15 +5,10 @@
  * @param onCellClick {(x: number, y: number) => void}
  * @returns void
  */
-export function drawField(htmlElement: Element, field: number[][] | unknown[][], onCellClick: {
-    (x: number, y: number): void;
-    (x: number, y: number): void;
-    (x: number, y: number): void;
-    (arg0: number, arg1: number): void;
-}) {
-    const rowIterator = (row: [], rowIndex: number) =>
+export function drawField(htmlElement: Element, field: number[][], onCellClick: (x: number, y: number) => void) {
+    const rowIterator = (row: number[], rowIndex: number) =>
         `<tr>${row
-            .map((cell, columnIndex) => {
+            .map((cell: number, columnIndex: number) => {
                 if (cell === 1) {
                     return `<td 
         data-x=${columnIndex}
@@ -29,15 +24,14 @@ export function drawField(htmlElement: Element, field: number[][] | unknown[][],
             })
             .join('')}</tr>`;
 
-    // eslint-disable-next-line no-param-reassign
-    htmlElement!.innerHTML = `<table border=1>${field.map(rowIterator).join('')}</table>`;
-
     if (htmlElement) {
-        htmlElement.querySelector('table').addEventListener('click', (ev) => {
-            const clickedElement = ev.target;
+        // eslint-disable-next-line no-param-reassign
+        htmlElement.innerHTML = `<table style="border: 1px solid black;">${field.map(rowIterator).join('')}</table>`;
+        htmlElement.querySelector('table')!.addEventListener('click', (ev) => {
+            const clickedElement = ev.target as HTMLTableCellElement;
             const x = clickedElement!.getAttribute('data-x');
             const y = clickedElement!.getAttribute('data-y');
-            if (x >= 0 && y >= 0) {
+            if (Number(x) >= 0 && Number(y) >= 0) {
                 onCellClick(Number(x), Number(y));
             }
         });
