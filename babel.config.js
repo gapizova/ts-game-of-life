@@ -2,12 +2,12 @@ module.exports = {
   presets: [
     [
       '@babel/preset-env',
-      { targets: { node: 'current' } },
-      '@babel/preset-typescript',
+      {
+        targets: { node: 'current' },
+        useBuiltIns: 'entry', // alternative mode: "entry"/ "usage"
+        corejs: 3, // default would be 2
+      },
     ],
-  ],
-  plugins: [
-    'babel-plugin-styled-components',
-    '@babel/plugin-proposal-class-properties',
+    '@babel/preset-typescript',
   ],
 };
