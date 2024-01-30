@@ -73,6 +73,7 @@ module.exports = {
     ],
   },
   devServer: {
+    allowedHosts: ['.csb.app'],
     compress: false,
     open: true,
     port: 3000,
