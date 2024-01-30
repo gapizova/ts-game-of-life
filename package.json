@@ -68,5 +68,8 @@
     "*.{css,md,yml}": "prettier --write",
     "*.css": "stylelint --fix",
     "**/*.scss": "stylelint --fix"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0"
   }
 }
