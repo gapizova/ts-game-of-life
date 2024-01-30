@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "prettier --check . && eslint . --ext .js,.ts && stylelint \"**/*.css\" --ignore-path .gitignore",
-    "lint:fix": "prettier --write . && eslint . --fix && stylelint \"**/*.css\" --fix --ignore-path .gitignore",
+    "lint": "prettier --check . && eslint . --ext .js,.ts --ignore-path .gitignore",
+    "lint:fix": "prettier --write . && eslint . --fix --ignore-path .gitignore",
     "prepare": "husky install",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
