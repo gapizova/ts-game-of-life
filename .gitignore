@@ -48,10 +48,10 @@ prod/
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
 
 ### Vim ###
 *.sw[a-p]
@@ -91,3 +91,5 @@ $RECYCLE.BIN/
 
 # Test
 /coverage
+/jest.config.js
+/tsconfig.json
